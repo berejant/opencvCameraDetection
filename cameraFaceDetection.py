@@ -23,6 +23,9 @@ if cam is None:
 while True:
     # Read a frame from the camera
     status, photo = cam.read()
+    if not status:
+        print("Failed to read camera")
+        continue
 
     # convert to gray scale of each frames
     gray = cv2.cvtColor(photo, cv2.COLOR_BGR2GRAY)
